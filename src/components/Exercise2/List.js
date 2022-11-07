@@ -6,7 +6,7 @@ class List extends Component {
   render() {
     return (
       <div >
-        {this.props.contacts.map(contact => <Contact key={contact} name={contact}/>)}
+        {this.props.contacts.map(contact => <Contact btn={this.props.btn} key={contact} name={contact}/>)}
       </div>
     );
   }

@@ -42,14 +42,31 @@ class Exercise2 extends Component {
     };
   }
 
-  makeListOfContacts(){
-    return this.state.conversations.map(c => c.with)
+  sendConvo(){
+    let item =  this.state.conversations.filter(c => c.with === this.state.displayConversation)
+    console.log(item[0]["convo"])
+    return item[0]["convo"]
+  }
+  displayConvo = (name) => {
+    this.setState({ displayConversation: name });
+  };
+  makeListOfContacts() {
+    return this.state.conversations.map((c) => c.with);
   }
   render() {
     return (
       <div>
-        {this.state.displayConversation === null ? <div><List contacts={this.makeListOfContacts()} /><div>hii</div></div> : <Conversation />}
-       
+        {this.state.displayConversation === null ? (
+          <div>
+            <List
+              btn={this.displayConvo}
+              contacts={this.makeListOfContacts()}
+            />
+            <div></div>
+          </div>
+        ) : (
+          <Conversation btn={this.displayConvo} sender={this.state.displayConversation} convo={this.sendConvo()}/>
+        )}
       </div>
     );
   }
