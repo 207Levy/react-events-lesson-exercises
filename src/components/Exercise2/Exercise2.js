@@ -42,10 +42,11 @@ class Exercise2 extends Component {
     };
   }
 
-  sendConvo(){
-    let item =  this.state.conversations.filter(c => c.with === this.state.displayConversation)
-    console.log(item[0]["convo"])
-    return item[0]["convo"]
+  sendConvo() {
+    let item = this.state.conversations.filter(
+      (c) => c.with === this.state.displayConversation
+    );
+    return item[0]["convo"];
   }
   displayConvo = (name) => {
     this.setState({ displayConversation: name });
@@ -65,7 +66,11 @@ class Exercise2 extends Component {
             <div></div>
           </div>
         ) : (
-          <Conversation btn={this.displayConvo} sender={this.state.displayConversation} convo={this.sendConvo()}/>
+          <Conversation
+            btn={this.displayConvo}
+            sender={this.state.displayConversation}
+            convo={this.sendConvo()}
+          />
         )}
       </div>
     );
