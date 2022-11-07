@@ -42,10 +42,13 @@ class Exercise2 extends Component {
     };
   }
 
+  makeListOfContacts(){
+    return this.state.conversations.map(c => c.with)
+  }
   render() {
     return (
       <div>
-        {this.state.displayConversation === null ? <div><List /><div>hii</div></div> : <Conversation />}
+        {this.state.displayConversation === null ? <div><List contacts={this.makeListOfContacts()} /><div>hii</div></div> : <Conversation />}
        
       </div>
     );
